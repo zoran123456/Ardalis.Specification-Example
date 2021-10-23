@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using GenericRepo = Example.Infrastructure.Repositories.GenericRepoExample;
 
 namespace Example.Api.Controllers
 {
@@ -14,10 +15,12 @@ namespace Example.Api.Controllers
     public class ProductsController : ControllerBase
     {
         ProductRepository _repo;
+        GenericRepo.ProductRepository _genericRepo;
 
-        public ProductsController(ProductRepository repo)
+        public ProductsController(ProductRepository repo, GenericRepo.ProductRepository genericRepo)
         {
             _repo = repo;
+            _genericRepo = genericRepo;
         }
 
         [HttpGet]
@@ -39,6 +42,15 @@ namespace Example.Api.Controllers
         public async Task<List<Product>> GetByDescription(string text)
         {
             return await _repo.SearchForProductByDescription(text);
+        }
+
+        [HttpGet]
+        [ActionName("ByNameWithGenericRepo")]
+        public async Task<List<Product>> GetByNameGenericRepo(string text)
+        {
+            _genericRepo.ProductName = text;
+
+            return await _genericRepo.Search();
         }
     }
 }

@@ -24,6 +24,7 @@ namespace Example.Api
 
             services.AddDbContext<Infrastructure.DbContext>(opt => opt.UseInMemoryDatabase("Temp"));
             services.AddScoped<ProductRepository>();
+            services.AddScoped<Infrastructure.Repositories.GenericRepoExample.ProductRepository>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
