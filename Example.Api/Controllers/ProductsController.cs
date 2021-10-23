@@ -1,10 +1,7 @@
 ﻿using Example.Core.ProductAggregate.Models;
 using Example.Infrastructure.Repositories;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using GenericRepo = Example.Infrastructure.Repositories.GenericRepoExample;
 
@@ -14,8 +11,8 @@ namespace Example.Api.Controllers
     [ApiController]
     public class ProductsController : ControllerBase
     {
-        ProductRepository _repo;
-        GenericRepo.ProductRepository _genericRepo;
+        readonly ProductRepository _repo;
+        readonly GenericRepo.ProductRepository _genericRepo;
 
         public ProductsController(ProductRepository repo, GenericRepo.ProductRepository genericRepo)
         {
