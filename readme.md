@@ -16,14 +16,14 @@ It aims to show benefits of using `ISpecification` pattern, and how to use `Arda
 ### Solution is built upon DDD principles, and projects are structured:
 
 #### Core
-Defines your Core (or Domain) Layer, where business logic remains. Here lays both Entitites and Specifications. If Value Objects or Events are needed, they should be placed in this project. __
+Defines your Core (or Domain) Layer, where business logic remains. Here lays both Entitites and Specifications. If Value Objects or Events are needed, they should be placed in this project.  
 Project Uses `Ardalis.Specification package`
 
 #### Infrastructure
-Layer for Data Access, uses Entity Framework and Repository pattern (*although without UnitOfWork*) __
-Project Uses `Ardalis.Specification package` __
-Project references `Core` layer __
+Layer for Data Access, uses Entity Framework and Repository pattern (*although without UnitOfWork*)  
+Project Uses `Ardalis.Specification package`  
+Project references `Core` layer  
 
 #### Api
-UI Layer, built as a Web Api project __
+UI Layer, built as a Web Api project  
 Project references  `Infrastructure`  layer
