@@ -1,6 +1,6 @@
 ﻿namespace Example.Core.ProductAggregate.Models
 {
-    public class Product
+    public class Product : Interfaces.IAggregateRoot
     {
         public int Id { get; set; }
         public string Name { get; set; }
